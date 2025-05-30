@@ -35,6 +35,19 @@ export default function Layout({ children }: LayoutProps) {
   const [isMobileContactOpen, setIsMobileContactOpen] = useState(false);
 
   useEffect(() => {
+    if (isMobileMenuOpen) {
+      setIsMobileContactOpen(false);
+      setIsContactOpen(false);
+    }
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    if (isMobileContactOpen || isContactOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [isMobileContactOpen, isContactOpen]);
+
+  useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);

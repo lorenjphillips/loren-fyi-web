@@ -1,5 +1,12 @@
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 interface ContactCardProps {
   isOpen: boolean;
@@ -7,19 +14,15 @@ interface ContactCardProps {
 }
 
 export default function ContactCard({ isOpen, onClose }: ContactCardProps) {
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-background p-6 rounded-lg shadow-lg max-w-md w-full mx-4 relative animate-fade-in">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <X className="h-5 w-5" />
-        </button>
-        
-        <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-md">
+        <DialogHeader>
+          <DialogTitle>Contact Information</DialogTitle>
+          <DialogDescription>
+            Get in touch with me through email or phone.
+          </DialogDescription>
+        </DialogHeader>
         
         <div className="space-y-4">
           <div>
@@ -40,7 +43,7 @@ export default function ContactCard({ isOpen, onClose }: ContactCardProps) {
             Do not hesitate to email me or text directly!
           </p>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 } 
