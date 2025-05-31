@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 export default function Blog() {
   const blogPosts = [
     {
+      title: "The Narrow Lane: What Division I Athletics Cost Me (And What It Gave Me Back)",
+      excerpt: "Why Elite College Athletics Might Hold You Back",
+      date: "May 30, 2025",
+      readTime: "10 min read",
+      tags: ["Athletics", "Personal Growth", "College Experience"],
+      link: "https://open.substack.com/pub/loforeal/p/the-narrow-lane-what-division-i-athletics?r=1rvblp&utm_campaign=post&utm_medium=web&showWelcomeOnShare=true"
+    },
+    {
       title: "Deciphering Interests: Use Flow & Go",
       excerpt: "When Everyone Else Seems to Have It Figured Out",
       date: "May 26, 2025",
