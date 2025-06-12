@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 export default function Blog() {
   const blogPosts = [
     {
+      title: "Blueprint for Your First Engineering Resume",
+      excerpt: "You Don't Need Experience, You Need a Strategy",
+      date: "Jun 07, 2025",
+      readTime: "12 min read",
+      tags: ["Career", "Engineering", "Resume"],
+      link: "https://loforeal.substack.com/p/blueprint-for-your-first-engineering"
+    },
+    {
       title: "The Narrow Lane: What Division I Athletics Cost Me (And What It Gave Me Back)",
       excerpt: "Why Elite College Athletics Might Hold You Back",
       date: "May 30, 2025",
