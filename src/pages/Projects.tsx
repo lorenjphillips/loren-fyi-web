@@ -9,6 +9,15 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "ImprintAI: Voice Cloning & AI Persona Platform",
+      shortDescription: "Open-source voice cloning and AI chatbot platform that creates digital twins with zero-shot voice synthesis and intelligent knowledge bases using RAG architecture.",
+      fullDescription: "ImprintAI addresses the high cost barrier of commercial voice cloning solutions (Resemble AI: $700+, 11Labs: $1300+) by leveraging cutting-edge open-source models. The platform combines ChatterboxTTS for zero-shot voice synthesis with Stella EN 1.5B embeddings for intelligent document retrieval, creating a comprehensive AI persona system. The architecture implements Retrieval Augmented Generation (RAG) to enable context-aware responses from uploaded documents, supporting multiple file formats (PDF, DOC, TXT). Key technical achievements include sub-200ms voice generation on GPU hardware, 44.1kHz audio quality output, and integration of a 1.5B parameter embedding model with an industry-leading MTEB score of 64.4. The system requires only 3-5 seconds of audio input for accurate voice cloning and includes personality configuration capabilities for custom AI persona creation. The full-stack implementation uses FastAPI for backend services, React with TypeScript for the frontend, and ChromaDB for vector-based document storage and retrieval. This project demonstrates the feasibility of democratizing voice AI technology through open-source alternatives while maintaining professional-grade performance standards.",
+      image: "/images/projects/imprintai.png",
+      videoUrl: "https://www.youtube.com/watch?v=i67Q6FFod6o",
+      linkedinUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7336095738461921280/",
+      tags: ["AI", "Voice Cloning", "Machine Learning", "RAG", "FastAPI", "React", "Open Source", "TTS"]
+    },
+    {
       title: "Replicating Natural Nanoscale Structural Color",
       shortDescription: "Research and development of structural color replication inspired by natural organisms, combining biology and nanotechnology for potential applications in sensors, displays, and photovoltaics.",
       fullDescription: "Structural color, where vibrant colors are produced through nanostructures instead of pigments, has been researched in artistic and scientific communities. Many biological species have developed structural properties that assist in camouflage, send warning signals, attract mates, regulate body temperature, etc. Structural color showcases the remarkable ingenuity of biological systems in achieving vivid and iridescent colors using limited materials. In contrast to humans, who have an extensive array of pigments and dyes at their disposal, nature employs a relatively small set of 'building blocks' to create an astonishing variety of colors. The study of natural structural color holds immense potential for inspiring and advancing nanotechnologies in the field of nanophotonics. The applications to medical solutions, optical sensing, communication, and even defense are broad and promising. By understanding the intricate mechanisms behind natural structural coloration, scientists can gain insights into designing and fabricating artificial nanostructures that exhibit desired optical properties. This interdisciplinary approach, combining biology and nanotechnology will pave the way for innovation in these fields of sensors, displays, and photovoltaics, among others.",
@@ -203,6 +212,8 @@ export default function Projects() {
           gallery={selectedProject.gallery}
           type="project"
           pdfs={selectedProject.pdfs}
+          videoUrl={selectedProject.videoUrl}
+          linkedinUrl={selectedProject.linkedinUrl}
         />
       )}
     </Layout>

@@ -1,10 +1,12 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ExternalLink } from "lucide-react";
 import PDFViewer from "./PDFViewer";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import YouTube from "react-youtube";
 
 interface Image {
   src: string;
@@ -24,6 +26,8 @@ interface DetailModalProps {
   images?: Image[];
   gallery?: string[];
   pdfs?: { url: string; title: string }[];
+  videoUrl?: string;
+  linkedinUrl?: string;
 }
 
 export default function DetailModal({ 
@@ -37,7 +41,9 @@ export default function DetailModal({
   type,
   images = [],
   gallery = [],
-  pdfs = []
+  pdfs = [],
+  videoUrl,
+  linkedinUrl
 }: DetailModalProps) {
   const [showScrollPrompt, setShowScrollPrompt] = useState(true);
 
@@ -51,6 +57,15 @@ export default function DetailModal({
     }
   }, [isOpen]);
 
+  // Extract YouTube video ID from URL
+  const getYouTubeVideoId = (url: string) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const youtubeVideoId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl w-[95vw] sm:w-[90vw] md:w-[85vw] lg:w-[80vw] max-h-[90vh] overflow-y-auto overflow-x-hidden p-4 sm:p-6">
@@ -59,6 +74,31 @@ export default function DetailModal({
         </DialogHeader>
         
         <div className="space-y-6 w-full">
+          {/* YouTube Video */}
+          {youtubeVideoId && (
+            <Card className="w-full">
+              <CardContent className="p-4">
+                <h3 className="font-semibold mb-3">Demo Video</h3>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <YouTube
+                    videoId={youtubeVideoId}
+                    className="absolute top-0 left-0 w-full h-full"
+                    iframeClassName="w-full h-full rounded-lg"
+                    opts={{
+                      width: '100%',
+                      height: '100%',
+                      playerVars: {
+                        autoplay: 0,
+                        modestbranding: 1,
+                        rel: 0,
+                      },
+                    }}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* Photo Gallery */}
           {(gallery.length > 0 || images.length > 0) && (
             <div className="relative w-full">
@@ -133,6 +173,21 @@ export default function DetailModal({
                       {date}
                     </span>
                   )}
+                </div>
+              )}
+
+              {/* LinkedIn Link Button */}
+              {linkedinUrl && (
+                <div className="mt-4">
+                  <Button 
+                    variant="outline" 
+                    size="sm"
+                    onClick={() => window.open(linkedinUrl, '_blank')}
+                    className="flex items-center gap-2"
+                  >
+                    LinkedIn Post
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
                 </div>
               )}
             </CardContent>
