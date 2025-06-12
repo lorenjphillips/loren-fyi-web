@@ -127,8 +127,8 @@ export default function DetailModal({
                   </div>
                 ))}
               </div>
-              {/* Scroll Prompt */}
-              {showScrollPrompt && (
+              {/* Scroll Prompt - Only show if there are multiple images */}
+              {showScrollPrompt && (gallery.length + images.length > 1) && (
                 <div className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-2 animate-pulse">
                   <span className="text-sm font-medium">Scroll for more</span>
                   <ChevronRight className="h-4 w-4" />
