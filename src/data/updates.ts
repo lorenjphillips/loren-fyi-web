@@ -3,7 +3,7 @@ import { Update } from "@/components/Updates";
 export const updates: Update[] = [
   {
     date: new Date("2025-06-10"),
-    content: "I updated my projects with some new AI related builds! Check out <a href='www.loren.fyi/projects' class='text-primary hover:underline'>My Projects</a>."
+    content: "I updated my projects with some new AI related builds! Check out <a href='/projects' class='text-primary hover:underline'>My Projects</a>."
   },
   {
     date: new Date("2025-05-30"),
