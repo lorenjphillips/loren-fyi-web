@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 export default function Blog() {
   const blogPosts = [
     {
+      title: "The Calculated Risk: Join a Startup and Chase Risk Over Comfort",
+      excerpt: "Why I Left Zoox for a Startup (And Why You Should Take the Leap Too)",
+      date: "Jul 12, 2025",
+      readTime: "12 min read",
+      tags: ["Career", "Startup", "Risk-Taking"],
+      link: "https://loforeal.substack.com/p/the-calculated-risk-join-a-startup"
+    },
+    {
       title: "Blueprint for Your First Engineering Resume",
       excerpt: "You Don't Need Experience, You Need a Strategy",
       date: "Jun 07, 2025",
@@ -55,7 +63,7 @@ export default function Blog() {
             Blog
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            I write about my journey in tech and life - subscribe to my substack!
+            I write about my journey in tech and life. Click below for notifications!
           </p>
           {/* Substack Subscribe Button */}
           <Button

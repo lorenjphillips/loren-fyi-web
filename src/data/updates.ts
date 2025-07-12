@@ -2,6 +2,10 @@ import { Update } from "@/components/Updates";
 
 export const updates: Update[] = [
   {
+    date: new Date("2025-07-12"),
+    content: "I pivoted roles to join a startup - I wrote an article on <a href='/blog' class='text-primary hover:underline'>My Blog</a>."
+  },
+  {
     date: new Date("2025-06-10"),
     content: "I updated my projects with some new AI related builds! Check out <a href='/projects' class='text-primary hover:underline'>My Projects</a>."
   },
