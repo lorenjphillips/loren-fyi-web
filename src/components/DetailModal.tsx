@@ -28,22 +28,24 @@ interface DetailModalProps {
   pdfs?: { url: string; title: string }[];
   videoUrl?: string;
   linkedinUrl?: string;
+  githubUrl?: string;
 }
 
-export default function DetailModal({ 
-  isOpen, 
-  onClose, 
-  title, 
-  description, 
-  tags, 
-  category, 
-  date, 
+export default function DetailModal({
+  isOpen,
+  onClose,
+  title,
+  description,
+  tags,
+  category,
+  date,
   type,
   images = [],
   gallery = [],
   pdfs = [],
   videoUrl,
-  linkedinUrl
+  linkedinUrl,
+  githubUrl
 }: DetailModalProps) {
   const [showScrollPrompt, setShowScrollPrompt] = useState(true);
 
@@ -179,13 +181,28 @@ export default function DetailModal({
               {/* LinkedIn Link Button */}
               {linkedinUrl && (
                 <div className="mt-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     size="sm"
                     onClick={() => window.open(linkedinUrl, '_blank')}
                     className="flex items-center gap-2"
                   >
                     LinkedIn Post
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
+                </div>
+              )}
+
+              {/* GitHub Link Button */}
+              {githubUrl && (
+                <div className="mt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => window.open(githubUrl, '_blank')}
+                    className="flex items-center gap-2"
+                  >
+                    View on GitHub
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </div>

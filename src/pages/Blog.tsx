@@ -5,6 +5,30 @@ import { Button } from "@/components/ui/button";
 export default function Blog() {
   const blogPosts = [
     {
+      title: "Why Nobody is Hiring Junior Devs (And How to Get Hired Anyway)",
+      excerpt: "The AI Drawbridge Is Up. Here's How to Get Across.",
+      date: "May 04, 2026",
+      readTime: "10 min read",
+      tags: ["Career", "Engineering", "AI", "Job Search"],
+      link: "https://loforeal.substack.com/p/why-nobody-is-hiring-junior-devs"
+    },
+    {
+      title: "Hackathon Alchemy: Strategy for Winning Under Pressure",
+      excerpt: "Why Judges Often Pick Taste Over Technical Brilliance Every Time",
+      date: "Dec 21, 2025",
+      readTime: "8 min read",
+      tags: ["Hackathon", "Career", "Strategy"],
+      link: "https://loforeal.substack.com/p/hackathon-alchemy-strategy-for-winning"
+    },
+    {
+      title: "Signal in the Noise: A 6-Month Experiment in Finding the Right Startup",
+      excerpt: "Why the most rigorous approach to my job search was learning when to abandon rigor",
+      date: "Oct 06, 2025",
+      readTime: "10 min read",
+      tags: ["Career", "Startup", "Job Search"],
+      link: "https://loforeal.substack.com/p/signal-in-the-noise-a-6-month-experiment"
+    },
+    {
       title: "The Calculated Risk: Join a Startup and Chase Risk Over Comfort",
       excerpt: "Why I Left Zoox for a Startup (And Why You Should Take the Leap Too)",
       date: "Jul 12, 2025",
