@@ -9,16 +9,6 @@ export default function Home() {
   return (
     <Layout>
       <div className="container mx-auto px-6 py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-[gradient_3s_ease-in-out_infinite] bg-clip-text text-transparent">
-            Loren Phillips
-          </h1>
-          {/* <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Engineer, Researcher, Designer.
-          </p> */}
-        </div>
-
         {/* Featured Content Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <Link to="/projects" className="block">

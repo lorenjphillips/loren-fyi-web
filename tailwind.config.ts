@@ -20,6 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				'playfair': ['"Playfair Display"', 'Georgia', 'serif'],
+				'bitter': ['Bitter', 'Georgia', 'serif'],
 				'inter': ['Inter', 'sans-serif'],
 			},
 			colors: {
