@@ -38,6 +38,7 @@ export default function Projects() {
       shortDescription: "Absurdly over-engineered Claude Code slash commands that answer trivially simple questions through elaborate chains of real APIs, satellite data, and scientific algorithms.",
       fullDescription: "skill-rot is a satirical engineering project built as a Claude Code CLI plugin. It implements four slash commands (/flip-a-coin, /is-it-friday, /am-i-online, /weather) where each command answers a dead-simple question through a deliberately excessive multi-step process using real, publicly available scientific APIs — no auth required. **The Bit** /flip-a-coin harvests entropy from four independent physical sources: the Australian National University's quantum random number generator (vacuum electromagnetic fluctuations), NOAA's DSCOVR satellite measuring solar wind proton density at the Sun-Earth L1 point, the OS kernel CSPRNG, and CPU nanosecond jitter — then XOR-combines and SHA-256 whitens them before returning HEADS or TAILS. /is-it-friday cross-verifies the day of the week using the IERS Earth rotation bulletin, Julian Day Numbers, NASA's JPL Horizons DE441 planetary ephemeris, DNS round-trip triangulation, and Zeller's 1882 congruence formula. /am-i-online audits all seven OSI layers, checking ICMP pings to DNS root servers, BGP prefix visibility across 300+ global peers via RIPE RIS, and NOAA outage signals — returning a score out of 100 with verdicts like 'PHILOSOPHICALLY QUESTIONABLE.' /weather derives local conditions from first principles without a weather API, computing solar irradiance from the Kasten-Young formula and decoding raw METAR reports field-by-field.",
       image: "/images/projects/skill-rot.png",
+      imageFit: "contain",
       tags: ["Claude Code", "Python", "CLI", "APIs & Data Engineering", "Satire", "Developer Tools"],
       githubUrl: "https://github.com/lorenjphillips/skill-rot"
     },
@@ -54,6 +55,7 @@ export default function Projects() {
       shortDescription: "A TypeScript, Git-versioned content pipeline that runs an SEO operation end to end — keyword-researched briefs, a Google Sheets/Docs sync layer, and automated Framer CMS publishing — across 100+ tracked pieces.",
       fullDescription: "A programmatic SEO content system built in TypeScript that runs an entire organic-growth content operation — from keyword-researched briefs to published articles — as a single, version-controlled Git repository instead of a sprawl of Google Docs tabs. Because every brief, draft, and index lives in the repo, the whole pipeline is diffable, reviewable, and reproducible. **Repository Structure** The library is organized into purpose-built directories: a content/ tree split into upcoming/ (content briefs enriched with keyword research) and finished/ (full articles pulled down from Google Docs); an INDEX.md master index that tracks every piece alongside keyword volume and difficulty metadata; a context/ folder of product feature docs that serves as the source-of-truth so generated copy stays accurate and on-brand; a scripts/ folder of sync and maintenance automation; and a slack/ folder capturing channel intelligence and marketing context. At last count the index tracked 103 pieces — 33 finished articles and 70 upcoming briefs. **Sync Layer** The core automation is sync-content.sh, a shell orchestrator that bridges a master Google Sheet (the 'SEO/GEO Content Production Sheet') and Google Docs through the Sheets and Drive REST APIs. It exposes targeted modes to keep iterative sessions cheap: --full runs a complete sheet-plus-docs sync, --sheet-only checks the sheet for newly added rows, and --docs-only re-pulls article text from Docs. Every run performs bidirectional count-validation, reconciling sheet rows against files on disk so a partial API response can never silently drop or overwrite content. **Publishing Pipeline** A publishing script ships approved articles to a live Framer site via the Framer CMS Server API. It parses YAML frontmatter, converts Markdown to HTML, introspects the CMS collection schema dynamically at runtime, and maps each article field to the correct Framer field ID before promoting a file from review to finished — no hand-copying and no stale field mappings. **Community Intelligence** To ground keyword choices in real demand, a founder-community chat export (~7,400 lines) was mined for search-intent signals and topic gaps, sourcing roughly 28 additional briefs that fed the upcoming queue and sharpened prioritization. **The Result** Production Sheet → Google Docs → automated sync scripts → an organized, Git-tracked content library → published pages: work that is usually manual copy-paste content ops becomes a repeatable, auditable system a single command can drive.",
       image: "/images/projects/coval-seo.png",
+      imageFit: "contain",
       tags: ["TypeScript", "Bash Automation", "SEO Automation", "Framer CMS API", "Google Sheets API", "Programmatic Publishing"],
       githubUrl: "https://github.com/lorenjphillips/coval-seo"
     },
@@ -214,17 +216,17 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {projects.map((project: any, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-lg transition-all duration-300 border-border/50 cursor-pointer"
               onClick={() => handleCardClick(project)}
             >
-              <div className="relative w-full h-48 overflow-hidden">
+              <div className={`relative w-full h-48 overflow-hidden ${project.imageFit === "contain" ? "bg-white" : ""}`}>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`w-full h-full ${project.imageFit === "contain" ? "object-contain" : "object-cover"} group-hover:scale-105 transition-transform duration-300`}
                 />
               </div>
               <CardHeader>
