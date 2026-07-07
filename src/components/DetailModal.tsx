@@ -29,6 +29,7 @@ interface DetailModalProps {
   videoUrl?: string;
   linkedinUrl?: string;
   githubUrl?: string;
+  websiteUrl?: string;
 }
 
 export default function DetailModal({
@@ -45,7 +46,8 @@ export default function DetailModal({
   pdfs = [],
   videoUrl,
   linkedinUrl,
-  githubUrl
+  githubUrl,
+  websiteUrl
 }: DetailModalProps) {
   const [showScrollPrompt, setShowScrollPrompt] = useState(true);
 
@@ -175,6 +177,21 @@ export default function DetailModal({
                       {date}
                     </span>
                   )}
+                </div>
+              )}
+
+              {/* Website Link Button */}
+              {websiteUrl && (
+                <div className="mt-4">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => window.open(websiteUrl, '_blank')}
+                    className="flex items-center gap-2"
+                  >
+                    Visit Website
+                    <ExternalLink className="h-4 w-4" />
+                  </Button>
                 </div>
               )}
 
