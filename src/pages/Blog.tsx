@@ -99,12 +99,6 @@ export default function Blog() {
       <div className="container mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Blog
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            I write about my journey in tech and life. Click below for notifications!
-          </p>
           {/* Substack Subscribe Button */}
           <Button
             onClick={() => window.open('https://loforeal.substack.com', '_blank')}
@@ -139,19 +133,9 @@ export default function Blog() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
+                  <p className="text-muted-foreground leading-relaxed">
                     {post.excerpt}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-md font-medium"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </CardContent>
               </Card>
             </a>
