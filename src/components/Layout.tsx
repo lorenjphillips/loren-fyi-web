@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Github, Linkedin, Instagram, Twitter, Youtube, Mail, Phone, Menu, X } from "lucide-react";
+import { Github, Linkedin, Instagram, Twitter, Youtube, Mail, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import ContactCard from "./ContactCard";
 import MouseFollower from "./MouseFollower";
@@ -19,7 +19,6 @@ const socialLinks = [
   { name: "Twitter", href: "https://x.com/lorenforeal", icon: Twitter },
   { name: "YouTube", href: "https://www.youtube.com/@lorenforeal", icon: Youtube },
   { name: "Email", href: "#", icon: Mail, isContact: true },
-  { name: "Phone", href: "#", icon: Phone, isContact: true },
 ];
 
 interface LayoutProps {
@@ -107,7 +106,7 @@ export default function Layout({ children }: LayoutProps) {
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Contact"
               >
-                <Phone className="h-5 w-5" />
+                <Mail className="h-5 w-5" />
               </button>
 
               {/* Mobile Menu Button */}
