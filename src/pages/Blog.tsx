@@ -5,6 +5,22 @@ import { Button } from "@/components/ui/button";
 export default function Blog() {
   const blogPosts = [
     {
+      title: "on starting a company: why me? why now?",
+      excerpt: "and why founding should also be in your future",
+      date: "Jul 27, 2026",
+      readTime: "13 min read",
+      tags: ["Startup", "Founding", "Career", "Personal Growth"],
+      link: "https://loforeal.substack.com/p/why-me-why-now"
+    },
+    {
+      title: "OpenACI: A Proposed Contract for Agent-Native CLIs",
+      excerpt: "Your CLI Has Two Audiences Now.",
+      date: "May 20, 2026",
+      readTime: "12 min read",
+      tags: ["AI", "Agents", "Engineering", "Developer Tools"],
+      link: "https://loforeal.substack.com/p/openaci"
+    },
+    {
       title: "Why Nobody is Hiring Junior Devs (And How to Get Hired Anyway)",
       excerpt: "The AI Drawbridge Is Up. Here's How to Get Across.",
       date: "May 04, 2026",
