@@ -2,6 +2,14 @@ import { Update } from "@/components/Updates";
 
 export const updates: Update[] = [
   {
+    date: new Date("2026-07-27"),
+    content: "New blog post: <a href='https://loforeal.substack.com/p/why-me-why-now' class='text-primary hover:underline'>on starting a company: why me? why now?</a>."
+  },
+  {
+    date: new Date("2026-05-20"),
+    content: "New blog post: <a href='https://loforeal.substack.com/p/openaci' class='text-primary hover:underline'>OpenACI: A Proposed Contract for Agent-Native CLIs</a>."
+  },
+  {
     date: new Date("2026-05-04"),
     content: "New blog post: <a href='https://loforeal.substack.com/p/why-nobody-is-hiring-junior-devs' class='text-primary hover:underline'>Why Nobody is Hiring Junior Devs (And How to Get Hired Anyway)</a>."
   },

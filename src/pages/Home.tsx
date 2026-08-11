@@ -5,20 +5,24 @@ import { updates } from "@/data/updates";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+// Near-critically damped so cards settle without bouncing on hover
+const cardHover = { scale: 1.02 };
+const cardHoverTransition = { type: "spring", stiffness: 260, damping: 30 } as const;
+
 export default function Home() {
   return (
     <Layout>
       <div className="container mx-auto px-6 py-12">
         {/* Featured Content Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
           <Link to="/projects" className="block">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              whileHover={cardHover}
+              transition={cardHoverTransition}
             >
               <Card className="group hover:shadow-lg transition-all duration-300 border-border/50 h-full">
-                <CardContent className="p-6">
-                  <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                <CardContent className="p-5">
+                  <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
                     <img
                       src="/images/projects/zooxme.jpeg"
                       alt="Latest Projects"
@@ -38,12 +42,12 @@ export default function Home() {
 
           <Link to="/research" className="block">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              whileHover={cardHover}
+              transition={cardHoverTransition}
             >
               <Card className="group hover:shadow-lg transition-all duration-300 border-border/50 h-full">
-                <CardContent className="p-6">
-                  <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                <CardContent className="p-5">
+                  <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
                     <img
                       src="/images/research/cell.jpeg"
                       alt="Research & Writing"
@@ -63,12 +67,12 @@ export default function Home() {
 
           <Link to="/blog" className="block">
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              whileHover={cardHover}
+              transition={cardHoverTransition}
             >
               <Card className="group hover:shadow-lg transition-all duration-300 border-border/50 h-full">
-                <CardContent className="p-6">
-                  <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+                <CardContent className="p-5">
+                  <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
                     <img
                       src="/images/blog/bike.jpg"
                       alt="Blog Posts"
