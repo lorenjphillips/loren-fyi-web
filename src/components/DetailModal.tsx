@@ -144,7 +144,7 @@ export default function DetailModal({
           {/* Project Description */}
           <Card className="w-full">
             <CardContent className="p-4">
-              <div className="prose prose-sm dark:prose-invert max-w-none">
+              <div className="prose prose-sm max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>
                   {description}
                 </ReactMarkdown>

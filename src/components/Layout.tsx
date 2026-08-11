@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Github, Linkedin, Instagram, Twitter, Youtube, Sun, Moon, Mail, Phone, Menu, X } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
+import { Github, Linkedin, Instagram, Twitter, Youtube, Mail, Phone, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import ContactCard from "./ContactCard";
 import MouseFollower from "./MouseFollower";
@@ -29,7 +28,6 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileContactOpen, setIsMobileContactOpen] = useState(false);
@@ -46,22 +44,6 @@ export default function Layout({ children }: LayoutProps) {
       setIsMobileMenuOpen(false);
     }
   }, [isMobileContactOpen, isContactOpen]);
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const shouldBeDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    
-    setIsDarkMode(shouldBeDark);
-    document.documentElement.classList.toggle('dark', shouldBeDark);
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDarkMode;
-    setIsDarkMode(newTheme);
-    document.documentElement.classList.toggle('dark', newTheme);
-    localStorage.setItem('theme', newTheme ? 'dark' : 'light');
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -114,13 +96,6 @@ export default function Layout({ children }: LayoutProps) {
                     {item.name}
                   </Link>
                 ))}
-                
-                {/* Theme Toggle */}
-                <div className="flex items-center space-x-2 ml-4 pl-4 border-l border-border/40">
-                  <Sun className="h-4 w-4" />
-                  <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />
-                  <Moon className="h-4 w-4" />
-                </div>
               </div>
             </div>
 
@@ -167,14 +142,6 @@ export default function Layout({ children }: LayoutProps) {
                       {item.name}
                     </Link>
                   ))}
-                  <div className="flex items-center justify-between px-4 py-2">
-                    <span className="text-sm text-muted-foreground">Theme</span>
-                    <div className="flex items-center space-x-2">
-                      <Sun className="h-4 w-4" />
-                      <Switch checked={isDarkMode} onCheckedChange={toggleTheme} />
-                      <Moon className="h-4 w-4" />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

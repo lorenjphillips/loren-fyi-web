@@ -64,8 +64,6 @@ export default function MouseFollower() {
         return;
       }
 
-      const isDark = document.documentElement.classList.contains("dark");
-
       for (let i = 1; i < pts.length; i++) {
         const p0 = pts[i - 1];
         const p1 = pts[i];
@@ -75,9 +73,7 @@ export default function MouseFollower() {
         const alpha = progress * progress * 0.62;
         const width = 1.2 + progress * 3.2;
 
-        const color = isDark
-          ? `rgba(180, 172, 162, ${alpha})`   // light warm gray on dark paper
-          : `rgba(148, 138, 126, ${alpha})`;   // light pencil gray on parchment
+        const color = `rgba(148, 138, 126, ${alpha})`;   // light pencil gray on parchment
 
         ctx.beginPath();
         ctx.moveTo(p0.x, p0.y);
