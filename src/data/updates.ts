@@ -2,6 +2,10 @@ import { Update } from "@/components/Updates";
 
 export const updates: Update[] = [
   {
+    date: new Date("2026-08-29"),
+    content: "New preprint: <a href='/research' class='text-primary hover:underline'>Measuring Query-Time Belief Repair on Long Histories</a> — when an agent audits its own answer against stale memory, the repair helps only above a generator capability threshold."
+  },
+  {
     date: new Date("2026-07-27"),
     content: "New blog post: <a href='https://loforeal.substack.com/p/why-me-why-now' class='text-primary hover:underline'>on starting a company: why me? why now?</a>."
   },
