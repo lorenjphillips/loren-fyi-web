@@ -7,9 +7,11 @@ import MediaCarousel from "@/components/MediaCarousel";
 import PDFViewer from "@/components/PDFViewer";
 import { getResearchItem } from "@/lib/research";
 import NotFound from "./NotFound";
+import { useEscapeBack } from "@/hooks/useEscapeBack";
 
 export default function ResearchDetail() {
   const { slug } = useParams<{ slug: string }>();
+  useEscapeBack("/research");
   const item = slug ? getResearchItem(slug) : undefined;
 
   if (!item) return <NotFound />;

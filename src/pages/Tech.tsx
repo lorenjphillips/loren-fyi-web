@@ -7,9 +7,6 @@ export default function Tech() {
     <Layout>
       <div>
         <div className="max-w-3xl mx-auto">
-          <p className="text-muted-foreground mb-10">
-            tooling, infrastructure, and workflows.
-          </p>
           <ul className="space-y-4">
             {techPosts.map((post) => (
               <li key={post.slug}>

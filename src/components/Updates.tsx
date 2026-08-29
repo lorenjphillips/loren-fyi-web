@@ -29,8 +29,8 @@ export default function Updates({ updates, maxDisplayed = 3 }: UpdatesProps) {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-6 text-center">Updates</h2>
-      
+      <div className="border-t border-border/40 mb-8" />
+
       <div className="space-y-4 mb-6">
         {displayedUpdates.map((update, index) => (
           <Card key={index} className="hover:shadow-md transition-shadow">

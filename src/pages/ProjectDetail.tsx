@@ -8,9 +8,11 @@ import MediaCarousel from "@/components/MediaCarousel";
 import PDFViewer from "@/components/PDFViewer";
 import { getProject } from "@/lib/projects";
 import NotFound from "./NotFound";
+import { useEscapeBack } from "@/hooks/useEscapeBack";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
+  useEscapeBack("/projects");
   const item = slug ? getProject(slug) : undefined;
 
   if (!item) return <NotFound />;

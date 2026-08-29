@@ -29,12 +29,9 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 text-center group-hover:text-accent-foreground transition-colors">
+                  <h3 className="text-lg font-semibold text-center group-hover:text-accent-foreground transition-colors">
                     Latest Projects
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-center">
-                    Recent work in Voice AI, Autonomous Vehicles, Creative Web Development, and more!
-                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -54,12 +51,9 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 text-center group-hover:text-accent-foreground transition-colors">
+                  <h3 className="text-lg font-semibold text-center group-hover:text-accent-foreground transition-colors">
                     Research & Writing
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-center">
-                    A history of my research in nanophotonics, optics, and soft robotics.
-                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -79,12 +73,9 @@ export default function Home() {
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3 text-center group-hover:text-accent-foreground transition-colors">
+                  <h3 className="text-lg font-semibold text-center group-hover:text-accent-foreground transition-colors">
                     Blog Posts
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-center">
-                    Regular thoughts on my career, life, and the intersection of technology and creativity!
-                  </p>
                 </CardContent>
               </Card>
             </motion.div>

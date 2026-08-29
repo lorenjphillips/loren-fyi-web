@@ -208,9 +208,16 @@ const raw = [
       tags: ["Photovoltaics", "Graphene", "Microfabrication", "Renewable Energy"],
     }
   ];
-export const projects: Project[] = (raw as Omit<Project, "slug">[]).map((p) => ({
-  ...p,
-  slug: slugify(p.title),
+// gallery entries are authored as bare paths; normalise them to ProjectImage
+// so consumers never have to guess which shape they are handling.
+export const projects: Project[] = (raw as Array<Record<string, unknown>>).map((p) => ({
+  ...(p as Omit<Project, "slug" | "gallery">),
+  gallery: Array.isArray(p.gallery)
+    ? (p.gallery as Array<string | ProjectImage>).map((g) =>
+        typeof g === "string" ? { src: g } : g,
+      )
+    : undefined,
+  slug: slugify(p.title as string),
 }));
 
 export function getProject(slug: string): Project | undefined {

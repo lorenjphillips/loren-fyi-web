@@ -6,9 +6,11 @@ import { ArrowLeft, Check, Copy } from "lucide-react";
 import { useState } from "react";
 import { getTechPost } from "@/lib/tech";
 import NotFound from "./NotFound";
+import { useEscapeBack } from "@/hooks/useEscapeBack";
 
 export default function TechPost() {
   const { slug } = useParams<{ slug: string }>();
+  useEscapeBack("/tech");
   const post = slug ? getTechPost(slug) : undefined;
   const [copied, setCopied] = useState(false);
 
