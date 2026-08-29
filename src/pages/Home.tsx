@@ -14,7 +14,7 @@ export default function Home() {
     <Layout>
       <div>
         {/* Featured Content Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
           <Link to="/projects" className="block">
             <motion.div
               whileHover={cardHover}

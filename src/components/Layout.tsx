@@ -58,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
       <MouseFollower />
       {/* Header */}
       <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="mx-auto w-full max-w-6xl px-6 py-4">
+        <div className="mx-auto w-full max-w-5xl px-6 py-4">
           <nav className="flex items-center justify-between">
             {/* Logo/Brand */}
             {/* <Link to="/" className="text-xl font-semibold text-foreground hover:text-foreground/80 transition-colors">
@@ -141,7 +141,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Menu Dropdown */}
           {isMobileMenuOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/40">
-              <div className="mx-auto w-full max-w-6xl px-6 py-4">
+              <div className="mx-auto w-full max-w-5xl px-6 py-4">
                 <div className="flex flex-col space-y-4">
                   {navigation.map((item) => (
                     <Link
@@ -167,7 +167,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Contact Dropdown */}
           {isMobileContactOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/40">
-              <div className="mx-auto w-full max-w-6xl px-6 py-4">
+              <div className="mx-auto w-full max-w-5xl px-6 py-4">
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social) => (
                     <a
@@ -194,7 +194,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="animate-fade-in mx-auto w-full max-w-6xl px-6 py-12">
+      <main className="animate-fade-in mx-auto w-full max-w-5xl px-6 py-12">
         {children}
       </main>
 
