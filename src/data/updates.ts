@@ -35,7 +35,7 @@ export const updates: Update[] = [
   },
   // {
   //   date: new Date("2025-05-15"),
-  //   content: "Email me anytime at <a href='mailto:lorenphillips@protonmail.com' class='text-primary hover:underline'>lorenphillips@protonmail.com</a>."
+  //   content: "Email me anytime; see the contact card."
   // },
   // Add more updates here as needed
 ]; 
