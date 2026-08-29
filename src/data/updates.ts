@@ -19,7 +19,7 @@ export const updates: Update[] = [
   },
   {
     date: new Date("2026-04-19"),
-    content: "Built <a href='/projects' class='text-primary hover:underline'>Skill Vault</a> — a Go CLI that backs up your skills, config, and memory across 16 AI coding tools to Git and cloud storage."
+    content: "Built <a href='/projects' class='text-primary hover:underline'>Skill Vault</a>: a Go CLI that backs up your skills, config, and memory across 16 AI coding tools to Git and cloud storage."
   },
   {
     date: new Date("2025-07-12"),

@@ -243,13 +243,13 @@ My research trajectory received significant validation through the prestigious T
 ![TRELS Award](/images/research/lab-2.png)
 *Lab Dinner*
 
-The TRELS program provided more than just financial support—it offered invaluable mentorship and opened doors to intellectual opportunities that extended well beyond traditional classroom learning. Under the guidance of distinguished UC San Diego faculty, I was able to explore interdisciplinary connections between nanotechnology, medical imaging, and collaborative research methodologies.
+The TRELS program provided more than just financial support. It offered invaluable mentorship and opened doors to intellectual opportunities that extended well beyond traditional classroom learning. Under the guidance of distinguished UC San Diego faculty, I was able to explore interdisciplinary connections between nanotechnology, medical imaging, and collaborative research methodologies.
 
 ## Impact and Broader Vision
 
 What makes the TRELS program particularly meaningful is its commitment to supporting students who might otherwise face barriers to pursuing advanced research opportunities. This emphasis on inclusivity aligns with my belief that diverse perspectives drive scientific innovation. The program's holistic approach to education has shaped not only my technical skills but also my understanding of how research can serve broader societal needs.
 
-Through this experience, I've developed crucial skills in cross-institutional collaboration, project management, and translating complex scientific concepts into practical applications. The logistical challenges of coordinating research across multiple universities have taught me valuable lessons about communication, planning, and adaptability—skills that will serve me throughout my career.
+Through this experience, I've developed crucial skills in cross-institutional collaboration, project management, and translating complex scientific concepts into practical applications. The logistical challenges of coordinating research across multiple universities have taught me valuable lessons about communication, planning, and adaptability, skills that will serve me throughout my career.
 
 ## Looking Forward
 

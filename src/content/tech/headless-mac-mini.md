@@ -22,16 +22,16 @@ your laptop over SSH + tmux. Close the laptop lid; the agents keep running.
 | Tailscale | Stable private address for SSH from anywhere; no port forwarding. |
 | Remote Login | System Settings → General → Sharing → Remote Login (enables sshd). |
 | Never sleep | `sudo pmset -a sleep 0 disablesleep 1 womp 1 autorestart 1` |
-| FileVault decision | If ON, a power-loss reboot stops at the unlock screen — no unattended restart. Disable (`sudo fdesetup disable`) only if you accept the risk. |
+| FileVault decision | If ON, a power-loss reboot stops at the unlock screen, with no unattended restart. Disable (`sudo fdesetup disable`) only if you accept the risk. |
 | tmux | `brew install tmux`. Suggested `~/.tmux.conf`: mouse on, big scrollback (100k). |
-| Toolchain | Whatever your repo needs (e.g. `uv`, `node`, `pnpm`, `gh`) — verify your full test/lint gates pass on the Mini itself. |
+| Toolchain | Whatever your repo needs (e.g. `uv`, `node`, `pnpm`, `gh`). Verify your full test/lint gates pass on the Mini itself. |
 | Claude CLI | Install, then `/login` once on the Mini (credentials are per-machine). |
 | Codex CLI | Install, then log in on the Mini (or copy `~/.codex/auth.json`). |
 | git identity | Set `user.name`/`user.email`; auth `gh` on the Mini. |
 
 **Tip:** keep the repo at the *same absolute path* on both machines (e.g.
-`/Users/<you>/myrepo`) — Claude's memory and settings are keyed by path, and sibling
-worktrees resolve identically.
+`/Users/<you>/myrepo`), since Claude's memory and settings are keyed by path, and
+sibling worktrees resolve identically.
 
 ## SSH from the laptop
 
@@ -54,13 +54,13 @@ Now `ssh mini` just works, and `scp`/automation stay clean.
 All three are just `ssh -t mini …` into tmux:
 
 ```sh
-# mini — attach/create a plain shell session in the repo
+# mini: attach/create a plain shell session in the repo
 alias mini='ssh -t mini "tmux new-session -A -s marker -c ~/myrepo"'
 
-# orch — attach/create the orchestrator session running Claude unattended
+# orch: attach/create the orchestrator session running Claude unattended
 alias orch='ssh -t mini "~/.local/bin/orch"'
 
-# ms <name> — attach/create any named session (extra agents, scratch shells)
+# ms <name>: attach/create any named session (extra agents, scratch shells)
 ms() { ssh -t mini "~/.local/bin/sess $1"; }
 ```
 
@@ -74,11 +74,11 @@ tmux new-session -A -s orchestrator -c ~/myrepo \
 ```
 
 (`sess` is the same idea with `-s "$1"` and no command. `--dangerously-skip-permissions`
-is what lets Claude run unattended without blocking on approval prompts — understand the
+is what lets Claude run unattended without blocking on approval prompts. Understand the
 risk before using it.)
 
 A third helper, `agent-window <name> "<cmd>"`, opens `<cmd>` in a new labeled tmux
-window inside the orchestrator session — the headless replacement for terminal tabs:
+window inside the orchestrator session, the headless replacement for terminal tabs:
 
 ```sh
 #!/bin/sh
@@ -97,7 +97,7 @@ one tmux server on the Mini
 
 - `Ctrl-b d` detach · `Ctrl-b w` window tree · `Ctrl-b s` session tree
 - `Ctrl-b n`/`p`/`<number>` switch windows · `Ctrl-b <arrows>` move between panes
-- **Persistence:** anything started *inside* tmux survives SSH dropping — the alias
+- **Persistence:** anything started *inside* tmux survives SSH dropping; the alias
   reattaches to the live process. Running `claude` over raw SSH without tmux dies on
   disconnect; never do that.
 - **After a Mini reboot** tmux sessions are gone: reattach fresh and use
@@ -108,9 +108,9 @@ one tmux server on the Mini
 1. **Non-login SSH PATH:** `ssh mini <cmd>` skips `/usr/local/bin` and `~/.local/bin`.
    Either wrap commands as `ssh mini 'bash -lc "…"'` or export PATH explicitly at the
    top of every helper script (as above).
-2. **sudo is interactive:** you can't drive `pmset`/`fdesetup` from an agent — run those
+2. **sudo is interactive:** you can't drive `pmset`/`fdesetup` from an agent. Run those
    yourself at the keyboard or over an interactive `ssh -t`.
-3. **RAM is the ceiling:** on an 8 GB machine, 2–3 concurrent agents is the practical
+3. **RAM is the ceiling:** on an 8 GB machine, 2-3 concurrent agents is the practical
    limit; more will thrash. Stagger waves.
 4. **Regenerate, never copy** `.venv`/`node_modules` across machines (architecture and
    absolute-path breakage). Sync code via git only.

@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ArrowLeft } from "lucide-react";
+import MediaCarousel from "@/components/MediaCarousel";
+import PDFViewer from "@/components/PDFViewer";
 import { getResearchItem } from "@/lib/research";
 import NotFound from "./NotFound";
 
@@ -32,17 +34,7 @@ export default function ResearchDetail() {
         )}
 
         {item.images?.length ? (
-          <div className="space-y-6 mb-10">
-            {item.images.map((img, i) => (
-              <figure key={i}>
-                <img
-                  src={img.src}
-                  alt={img.alt ?? item.title}
-                  className="w-full rounded-lg border border-border/50"
-                />
-              </figure>
-            ))}
-          </div>
+          <MediaCarousel images={item.images} title={item.title} className="mb-10" />
         ) : null}
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
@@ -52,24 +44,13 @@ export default function ResearchDetail() {
         </article>
 
         {item.pdfs?.length ? (
-          <div className="mt-12 border-t border-border/50 pt-6">
-            <h2 className="text-lg font-medium mb-3">Documents</h2>
-            <ul className="space-y-2">
-              {item.pdfs.map((pdf, i) => (
-                <li key={i}>
-                  <a
-                    href={pdf.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-primary hover:underline"
-                  >
-                    {pdf.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-12 border-t border-border/50 pt-8 space-y-8">
+            {item.pdfs.map((pdf, i) => (
+              <PDFViewer key={i} pdfUrl={pdf.url} title={pdf.title} />
+            ))}
           </div>
         ) : null}
+
       </div>
     </Layout>
   );

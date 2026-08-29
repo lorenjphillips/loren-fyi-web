@@ -6,7 +6,7 @@ interface Point {
   t: number;
 }
 
-// Trail age window in ms — scales with speed
+// Trail age window in ms, scales with speed
 const MIN_AGE = 180;
 const MAX_AGE = 750;
 const SPEED_SCALE = 900; // px/s considered "full speed"

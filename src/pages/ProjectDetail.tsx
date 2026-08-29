@@ -2,7 +2,10 @@ import Layout from "@/components/Layout";
 import { Link, useParams } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Github, Globe, Play, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import MediaCarousel from "@/components/MediaCarousel";
+import PDFViewer from "@/components/PDFViewer";
 import { getProject } from "@/lib/projects";
 import NotFound from "./NotFound";
 
@@ -31,27 +34,14 @@ export default function ProjectDetail() {
           </p>
         ) : null}
 
-        {item.image ? (
-          <img
-            src={item.image}
-            alt={item.title}
-            className={`w-full mb-10 rounded-lg border border-border/50 ${item.imageFit === "contain" ? "object-contain bg-white" : "object-cover"}`}
-          />
-        ) : null}
-
-        {item.gallery?.length ? (
-          <div className="space-y-6 mb-10">
-            {item.gallery.map((img, i) => (
-              <figure key={i}>
-                <img
-                  src={img.src}
-                  alt={img.alt ?? item.title}
-                  className="w-full rounded-lg border border-border/50"
-                />
-              </figure>
-            ))}
-          </div>
-        ) : null}
+        <MediaCarousel
+          images={[
+            ...(item.image ? [{ src: item.image, alt: item.title }] : []),
+            ...(item.gallery ?? []),
+          ]}
+          title={item.title}
+          className="mb-10"
+        />
 
         <article className="prose prose-neutral dark:prose-invert max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
@@ -60,33 +50,46 @@ export default function ProjectDetail() {
         </article>
 
         {(item.githubUrl || item.websiteUrl || item.videoUrl || item.linkedinUrl) && (
-          <div className="mt-12 border-t border-border/50 pt-6 flex flex-wrap gap-4">
-            {item.githubUrl && (<a href={item.githubUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">GitHub</a>)}
-            {item.websiteUrl && (<a href={item.websiteUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">Website</a>)}
-            {item.videoUrl && (<a href={item.videoUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">Video</a>)}
-            {item.linkedinUrl && (<a href={item.linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:underline">LinkedIn</a>)}
+          <div className="mt-12 border-t border-border/50 pt-6 flex flex-wrap gap-3">
+            {item.githubUrl && (
+              <Button asChild variant="outline" size="sm">
+                <a href={item.githubUrl} target="_blank" rel="noopener noreferrer">
+                  <Github className="h-4 w-4" /> GitHub
+                </a>
+              </Button>
+            )}
+            {item.websiteUrl && (
+              <Button asChild size="sm">
+                <a href={item.websiteUrl} target="_blank" rel="noopener noreferrer">
+                  <Globe className="h-4 w-4" /> Visit site
+                </a>
+              </Button>
+            )}
+            {item.videoUrl && (
+              <Button asChild variant="outline" size="sm">
+                <a href={item.videoUrl} target="_blank" rel="noopener noreferrer">
+                  <Play className="h-4 w-4" /> Watch demo
+                </a>
+              </Button>
+            )}
+            {item.linkedinUrl && (
+              <Button asChild variant="outline" size="sm">
+                <a href={item.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                  <Linkedin className="h-4 w-4" /> LinkedIn
+                </a>
+              </Button>
+            )}
           </div>
         )}
 
         {item.pdfs?.length ? (
-          <div className="mt-12 border-t border-border/50 pt-6">
-            <h2 className="text-lg font-medium mb-3">Documents</h2>
-            <ul className="space-y-2">
-              {item.pdfs.map((pdf, i) => (
-                <li key={i}>
-                  <a
-                    href={pdf.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-primary hover:underline"
-                  >
-                    {pdf.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          <div className="mt-12 border-t border-border/50 pt-8 space-y-8">
+            {item.pdfs.map((pdf, i) => (
+              <PDFViewer key={i} pdfUrl={pdf.url} title={pdf.title} />
+            ))}
           </div>
         ) : null}
+
       </div>
     </Layout>
   );
