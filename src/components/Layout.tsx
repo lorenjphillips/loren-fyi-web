@@ -5,6 +5,14 @@ import { useState, useEffect } from "react";
 import ContactCard from "./ContactCard";
 import MouseFollower from "./MouseFollower";
 
+const PAGE_TITLES: Record<string, string> = {
+  "/": "Home",
+  "/projects": "Projects",
+  "/research": "Research",
+  "/tech": "Tech",
+  "/blog": "Blog",
+};
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Projects", href: "/projects" },
@@ -50,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
       <MouseFollower />
       {/* Header */}
       <header className="border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="mx-auto w-full max-w-6xl px-6 py-4">
           <nav className="flex items-center justify-between">
             {/* Logo/Brand */}
             {/* <Link to="/" className="text-xl font-semibold text-foreground hover:text-foreground/80 transition-colors">
@@ -58,7 +66,7 @@ export default function Layout({ children }: LayoutProps) {
             </Link> */}
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center justify-between flex-1">
+            <div className="hidden md:grid grid-cols-[1fr_auto_1fr] items-center flex-1 gap-4">
               {/* Social Media Icons */}
               <div className="flex items-center space-x-4">
                 {socialLinks.map((social) => (
@@ -79,8 +87,13 @@ export default function Layout({ children }: LayoutProps) {
                 ))}
               </div>
 
+              {/* Current page */}
+              <span className="text-sm font-medium text-foreground whitespace-nowrap">
+                {PAGE_TITLES[location.pathname] ?? ""}
+              </span>
+
               {/* Navigation Links */}
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center space-x-1 justify-self-end">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -100,7 +113,7 @@ export default function Layout({ children }: LayoutProps) {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="flex md:hidden items-center justify-between w-full">
+            <div className="grid md:hidden grid-cols-[auto_1fr_auto] items-center w-full">
               {/* Contact Button */}
               <button
                 onClick={() => setIsMobileContactOpen(!isMobileContactOpen)}
@@ -109,6 +122,10 @@ export default function Layout({ children }: LayoutProps) {
               >
                 <Mail className="h-5 w-5" />
               </button>
+
+              <span className="text-sm font-medium text-foreground text-center">
+                {PAGE_TITLES[location.pathname] ?? ""}
+              </span>
 
               {/* Mobile Menu Button */}
               <button
@@ -124,7 +141,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Menu Dropdown */}
           {isMobileMenuOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/40">
-              <div className="container mx-auto px-6 py-4">
+              <div className="mx-auto w-full max-w-6xl px-6 py-4">
                 <div className="flex flex-col space-y-4">
                   {navigation.map((item) => (
                     <Link
@@ -150,7 +167,7 @@ export default function Layout({ children }: LayoutProps) {
           {/* Mobile Contact Dropdown */}
           {isMobileContactOpen && (
             <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b border-border/40">
-              <div className="container mx-auto px-6 py-4">
+              <div className="mx-auto w-full max-w-6xl px-6 py-4">
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social) => (
                     <a
@@ -177,7 +194,7 @@ export default function Layout({ children }: LayoutProps) {
       </header>
 
       {/* Main Content */}
-      <main className="animate-fade-in">
+      <main className="animate-fade-in mx-auto w-full max-w-6xl px-6 py-12">
         {children}
       </main>
 

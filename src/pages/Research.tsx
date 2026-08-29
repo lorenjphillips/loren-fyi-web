@@ -295,13 +295,7 @@ The future of medical imaging lies in our ability to harness the unique properti
 
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Research
-          </h1>
-        </div>
+      <div>
 
         {/* Research Items */}
         <div className="space-y-6">
@@ -313,14 +307,14 @@ The future of medical imaging lies in our ability to harness the unique properti
             >
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
-                  <CardTitle className="group-hover:text-accent-foreground transition-colors text-xl">
+                  <CardTitle className="group-hover:text-accent-foreground transition-colors">
                     {item.title}
                   </CardTitle>
                   <div className="flex items-center gap-3">
                     <span className="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-md font-medium">
                       {item.category}
                     </span>
-                    <span className="text-sm text-muted-foreground">
+                    <span className="text-xs text-muted-foreground">
                       {item.date}
                     </span>
                   </div>
@@ -328,7 +322,7 @@ The future of medical imaging lies in our ability to harness the unique properti
               </CardHeader>
               <CardContent>
                 <div className="flex gap-6">
-                  <p className="text-muted-foreground leading-relaxed flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                     {item.description}
                   </p>
                   {item.images && item.images.length > 0 && (

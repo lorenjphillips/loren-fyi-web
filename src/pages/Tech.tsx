@@ -5,7 +5,7 @@ import { techPosts } from "@/lib/tech";
 export default function Tech() {
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
+      <div>
         <div className="max-w-3xl mx-auto">
           <p className="text-muted-foreground mb-10">
             tooling, infrastructure, and workflows.

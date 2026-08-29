@@ -96,7 +96,7 @@ export default function Blog() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
+      <div>
         {/* Header */}
         <div className="text-center mb-12">
           {/* Substack Subscribe Button */}
@@ -121,7 +121,7 @@ export default function Blog() {
               <Card className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:scale-[1.02] transform-gpu cursor-pointer">
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
-                    <CardTitle className="group-hover:text-accent-foreground transition-colors text-xl">
+                    <CardTitle className="group-hover:text-accent-foreground transition-colors">
                       {post.title}
                     </CardTitle>
                     <span className="text-sm text-muted-foreground">
@@ -133,7 +133,7 @@ export default function Blog() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {post.excerpt}
                   </p>
                 </CardContent>

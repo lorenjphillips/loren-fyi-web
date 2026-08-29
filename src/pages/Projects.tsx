@@ -203,16 +203,7 @@ export default function Projects() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 tracking-tight">
-            Projects
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Work, experiments, and creative endeavors.
-          </p>
-        </div>
+      <div>
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -235,7 +226,7 @@ export default function Projects() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {project.shortDescription}
                 </p>
                 <div className="flex flex-wrap gap-2">

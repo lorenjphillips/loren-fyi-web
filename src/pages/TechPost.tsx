@@ -22,7 +22,7 @@ export default function TechPost() {
 
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
+      <div>
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center justify-between mb-8">
             <Link

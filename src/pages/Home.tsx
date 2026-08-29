@@ -12,7 +12,7 @@ const cardHoverTransition = { type: "spring", stiffness: 260, damping: 30 } as c
 export default function Home() {
   return (
     <Layout>
-      <div className="container mx-auto px-6 py-12">
+      <div>
         {/* Featured Content Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-16 max-w-5xl mx-auto">
           <Link to="/projects" className="block">
