@@ -46,8 +46,8 @@ export default function Home() {
                 <CardContent className="p-5">
                   <div className="relative w-full h-40 mb-4 rounded-lg overflow-hidden">
                     <img
-                      src="/images/research/cell.jpeg"
-                      alt="Research & Writing"
+                      src="/images/projects/sem.png"
+                      alt="SEM image of butterfly wing scales"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -80,6 +80,26 @@ export default function Home() {
               </Card>
             </motion.div>
           </Link>
+        </div>
+
+        {/* About */}
+        <div className="mb-16 space-y-3 text-muted-foreground leading-relaxed">
+          <p>
+            I'm a hardware engineer by training and a software engineer by
+            experience. I recently founded{" "}
+            <a href="https://usemarker.ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Marker</a>,
+            which gives full observability into AI agents running
+            business-critical workflows and turns that record into datasets for
+            post-training cheaper, more capable domain-specific models.
+          </p>
+          <p>
+            I'm most active on{" "}
+            <a href="https://www.linkedin.com/in/lorenjphillips/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">LinkedIn</a>{" "}
+            and{" "}
+            <a href="https://x.com/lorenforeal" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">X</a>,
+            with the occasional post on{" "}
+            <a href="https://loforeal.substack.com/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Substack</a>.
+          </p>
         </div>
 
         {/* Updates Section */}
