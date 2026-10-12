@@ -2,6 +2,10 @@ import { Update } from "@/components/Updates";
 
 export const updates: Update[] = [
   {
+    date: new Date("2026-10-12"),
+    content: "New research: <a href='/research/ai-warden-the-stanford-prison-experiment-in-minecraft-run-by' class='text-primary hover:underline'>AI Warden</a>, the Stanford Prison Experiment in Minecraft with LLM wardens."
+  },
+  {
     date: new Date("2026-08-29"),
     content: "New preprint: <a href='/research' class='text-primary hover:underline'>Measuring Query-Time Belief Repair on Long Histories</a>."
   },

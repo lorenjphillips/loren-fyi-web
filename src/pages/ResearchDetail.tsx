@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { ArrowLeft } from "lucide-react";
 import MediaCarousel from "@/components/MediaCarousel";
+import ImageGallery from "@/components/ImageGallery";
 import PDFViewer from "@/components/PDFViewer";
 import { getResearchItem } from "@/lib/research";
 import NotFound from "./NotFound";
@@ -44,6 +45,14 @@ export default function ResearchDetail() {
             {item.fullDescription}
           </ReactMarkdown>
         </article>
+
+        {item.gallery?.length ? (
+          <ImageGallery
+            images={item.gallery}
+            title={item.galleryTitle}
+            className="mt-12 border-t border-border/50 pt-8"
+          />
+        ) : null}
 
         {item.pdfs?.length ? (
           <div className="mt-12 border-t border-border/50 pt-8 space-y-8">

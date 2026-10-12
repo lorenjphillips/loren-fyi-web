@@ -36,12 +36,12 @@ export default function Research() {
                   <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                     {item.description}
                   </p>
-                  {item.images && item.images.length > 0 && (
+                  {(item.thumbnail || item.images?.length) && (
                     <div className="w-32 h-32 relative rounded-lg overflow-hidden flex-shrink-0">
                       <img
-                        src={item.images[0].src}
-                        alt={item.images[0].alt}
-                        className="object-cover w-full h-full"
+                        src={item.thumbnail ?? item.images![0].src}
+                        alt={item.images?.[0]?.alt ?? item.title}
+                        className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
                   )}
