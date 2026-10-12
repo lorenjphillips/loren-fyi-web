@@ -5,6 +5,7 @@ import remarkGfm from "remark-gfm";
 import { ArrowLeft, Github, Globe, Play, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MediaCarousel from "@/components/MediaCarousel";
+import ImageGallery from "@/components/ImageGallery";
 import PDFViewer from "@/components/PDFViewer";
 import { getProject } from "@/lib/projects";
 import NotFound from "./NotFound";
@@ -50,6 +51,14 @@ export default function ProjectDetail() {
             {item.fullDescription}
           </ReactMarkdown>
         </article>
+
+        {item.photos?.length ? (
+          <ImageGallery
+            images={item.photos}
+            title={item.photosTitle}
+            className="mt-12 border-t border-border/50 pt-8"
+          />
+        ) : null}
 
         {(item.githubUrl || item.websiteUrl || item.videoUrl || item.linkedinUrl) && (
           <div className="mt-12 border-t border-border/50 pt-6 flex flex-wrap gap-3">
