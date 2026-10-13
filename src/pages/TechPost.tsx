@@ -55,7 +55,19 @@ export default function TechPost() {
             <p className="text-sm text-muted-foreground mb-8">{post.date}</p>
           )}
           <article className="prose prose-neutral dark:prose-invert max-w-none">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                // Screenshots are often tall; cap them so they don't swamp the column.
+                img: ({ node: _node, ...props }) => (
+                  <img
+                    {...props}
+                    loading="lazy"
+                    className="mx-auto max-h-[44rem] w-auto rounded-lg border border-border/50"
+                  />
+                ),
+              }}
+            >
               {post.body}
             </ReactMarkdown>
           </article>
